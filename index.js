@@ -37,7 +37,7 @@ mongoose.connect('mongodb://localhost:27017/farmStand', { useNewUrlParser: true 
 app.get('/products', async (req, res) => {
     const products = await Product.find();
     const out = products.map((prod) => {
-        return {name: prod.name, description: prod.description, price:prod.price, imageUrl: prod.imageUrl};
+        return {name: prod.name, description: prod.description, price:prod.price, photo: prod.photo};
     });
     res.json(out);
 })

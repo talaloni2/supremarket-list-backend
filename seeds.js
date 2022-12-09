@@ -29,13 +29,20 @@ const seedProducts = [
         name: "milk",
         description: "Got milk?",
         price: "6.13",
-        photo: "https://www.tnuva.co.il/uploads/f_606ee43fa87cf_1617880127.jpg",
+        photo: "https://www.tnuva.co.il/uploads/f_606ee43fa87cf_1617880127.jpg"
     },
     {
         name: "eggs",
         description: "How did the hen get to work so fast? She used the eggs-press lane!",
         price: "13",
-        photo: "https://upload.wikimedia.org/wikipedia/commons/5/56/Eierdoosmet10eierengevuld2010.jpg",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/5/56/Eierdoosmet10eierengevuld2010.jpg"
+    },
+    {
+        name: "flour",
+        description: "Very good for you",
+        price: "7.9",
+        photo: "https://www.stybel.co.il/warehouse/dynamic/179503.jpg"
+
     }
 ]
 
