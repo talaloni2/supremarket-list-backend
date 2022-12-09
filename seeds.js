@@ -2,7 +2,7 @@
 
 const { default: mongoose } = require("mongoose");
 
-const Product = require('./models/product')
+const {Product} = require('./models/Product')
 
 mongoose.connect('mongodb://localhost:27017/farmStand', { useNewUrlParser: true })
     .then(() => {
@@ -11,41 +11,37 @@ mongoose.connect('mongodb://localhost:27017/farmStand', { useNewUrlParser: true 
         console.log("no connection start");
     })
 
-// const p = new Product({
-//     name: ' Ruby',
-//     price: 1.99,
-//     category: 'fruit'
-// })
-// p.save().then(p => {
-//     console.log(p)
-// })
-//     .catch(e => {
-//         console.log(e)
 
-//     })
 const seedProducts = [
     {
-        name: 'fairy eggplant',
-        price: 1.00,
-        category: 'vegetable'
-
+        name: "water",
+        description: "Great Ein Gedi water. Buy fast while they last!",
+        price: "4",
+        photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1DDt7Ok8QM-TTfRCT6qsHmNp55Ag0iZDiufLjwl3MhiGYupJ9MOu1MPTnwYEO1W_eIC4&usqp=CAU"
     },
     {
-        name: 'organic goddess',
-        price: 4.8,
-        category: 'fruit'
+        name: "bread",
+        description: "This stuff is selling like hotcakes",
+        price: "20",
+        photo: "https://www.theclevercarrot.com/wp-content/uploads/2013/12/sourdough-bread-round-1-of-1.jpg"
     },
     {
-        name: 'celery',
-        price: 1.50,
-        category: 'fruit'
+        name: "milk",
+        description: "Got milk?",
+        price: "6.13",
+        photo: "https://www.tnuva.co.il/uploads/f_606ee43fa87cf_1617880127.jpg",
+    },
+    {
+        name: "eggs",
+        description: "How did the hen get to work so fast? She used the eggs-press lane!",
+        price: "13",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/5/56/Eierdoosmet10eierengevuld2010.jpg",
     }
-
 ]
-Product.insertMany(seedProducts)
-    .then(res => {
-        console.log(res)
-    })
-    .catch(e => {
-        console.log(e)
-    })
+
+const populateProducts = async () => {
+    await Product.deleteMany({});
+    await Product.insertMany(seedProducts);
+}
+
+populateProducts().then(() => { mongoose.connection.close(); })
